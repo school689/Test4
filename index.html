@@ -1,29 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>HTML Combiner</title>
-<style>
-body {
-    margin: 0;
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
-    height: 100vh;
-}
+<div id="content1"></div>
+<div id="content2"></div>
+<div id="content3"></div>
 
-iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-}
-</style>
-</head>
-
-<body>
-
-<iframe src="index1.html"></iframe>
-<iframe src="index2.html"></iframe>
-<iframe src="index3.html"></iframe>
-
-</body>
-</html>
+<script>
+  function loadFile(id, url) {
+    fetch(url)
+      .then(response => response.text())
+      .then(data => document.getElementById(id).innerHTML = data);
+  }
+  
+  loadFile('content1', 'index1.html');
+  loadFile('content2', 'index2.html');
+  loadFile('content3', 'index3.html');
+</script>
